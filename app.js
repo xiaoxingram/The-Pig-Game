@@ -9,12 +9,11 @@ GAME RULES:
 
 */
 var scores, roundScores, activePlayer,dice, gamePlaying;
-
+var diceRoll=[];
 start();
-
 document.querySelector(".btn-roll").addEventListener("click",function(){
   if (gamePlaying){
-    var diceRoll=[];
+
     // generate a random number
     dice = Math.floor(( Math.random() * 6 )) +1;
     // store dice in diceRoll
@@ -23,16 +22,27 @@ document.querySelector(".btn-roll").addEventListener("click",function(){
     var diceDOM = document.querySelector(".dice")
     diceDOM.style.display = "block";
     // relate the random number to the Dice
+
     diceDOM.src = "dice-"+dice+".png";
     // update the round score IF the rolled number is not 1;
-  
-    if (dice !== 1){
-      //Add Score
-      roundScore += dice; // == roundScore = roundScore + dice;
-      document.querySelector('#current-'+activePlayer).textContent = roundScore;
-    } else {
+    var lastDice = diceRoll[diceRoll.length-2];
+
+    if (lastDice ===6 && dice===6 && diceRoll.length >=2) {
+
+
+      console.log(lastDice);
+      document.getElementById("score-"+activePlayer).textContent=0;
+      scores[activePlayer]=0;
+      nextPlayer();
+    } else if (dice !== 1){
+        //Add Score
+        roundScore += dice; // == roundScore = roundScore + dice;
+        document.querySelector('#current-'+activePlayer).textContent = roundScore;
+
+
+    }else {
        nextPlayer();
-     }
+    }
   };
 
 });
