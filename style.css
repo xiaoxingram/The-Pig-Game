@@ -1,12 +1,22 @@
 /**********************************************
 *** GENERAL
 **********************************************/
-
+.scoreSet{
+  position: absolute;
+  top: 2px;
+  left: 35%;
+  transform:translateX(-50%);
+  color: #555;
+  font-size: 18px;
+  text-align: center;
+  padding-left: 5px;
+  text-transform: uppercase;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 .clearfix::after {
@@ -80,7 +90,7 @@ body {
     color: #EB4D4D;
     top: -7px;
     right: 10px;
-    
+
 }
 
 .player-current-box {
