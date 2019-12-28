@@ -151,6 +151,12 @@ i {
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
 
+#dice-0 {
+  top: 120px;
+}
+#dice-1{
+  top: 250px;
+}
 .dice {
     position: absolute;
     left: 50%;
